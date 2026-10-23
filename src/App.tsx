@@ -408,7 +408,7 @@ function Footer() {
   return (
     <footer className="mx-auto mt-16 flex w-full max-w-7xl flex-col items-center justify-between gap-4 border-t border-line/60 px-6 py-10 text-center sm:flex-row sm:text-left lg:px-12">
       <span className="text-xs tracking-wide text-muted">
-        © {new Date().getFullYear()} entrelinhas.
+        © {new Date().getFullYear()} entrelinhas · por Luana Souza
       </span>
 
       <span className="font-serif text-sm italic text-paper/70">
