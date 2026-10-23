@@ -890,12 +890,15 @@ function ArticlePage() {
     let animationFrame = 0;
 
     function updateProgress() {
+      const currentElement = bodyRef.current;
+      if (!currentElement) return;
+
       cancelAnimationFrame(animationFrame);
 
       animationFrame = requestAnimationFrame(() => {
-        const rect = element.getBoundingClientRect();
+        const rect = currentElement.getBoundingClientRect();
         const documentTop = rect.top + window.scrollY;
-        const articleHeight = element.offsetHeight;
+        const articleHeight = currentElement.offsetHeight;
         const start = documentTop;
         const end = documentTop + articleHeight - window.innerHeight;
 
@@ -921,7 +924,7 @@ function ArticlePage() {
       window.removeEventListener("scroll", updateProgress);
       window.removeEventListener("resize", updateProgress);
     };
-  }, [slug, article]);
+  }, [slug]);
 
   useEffect(() => {
     setCopied(false);
