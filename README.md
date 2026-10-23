@@ -39,3 +39,7 @@ Se quiseres executar o projeto na tua máquina, segue estes passos:
 1. **Clonar o repositório:**
    ```bash
    git clone [https://github.com/LuanaSza/Entrelinhas_sza.git](https://github.com/LuanaSza/Entrelinhas_sza.git)
+
+
+
+https://entrelinhas-sza.vercel.app/
