@@ -1,0 +1,15 @@
+# Dependências
+node_modules
+/.pnp
+.pnp.js
+
+# Produção
+/dist
+/build
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+.vscode/
+.env
+.env.local
