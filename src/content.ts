@@ -58,3 +58,30 @@ export function formatDate(date: string) {
     timeZone: "UTC"
   }).format(new Date(`${date}T12:00:00Z`));
 }
+
+// --------------------------------------------------
+// LISTA DE FRASES PARA A PÁGINA INICIAL
+// --------------------------------------------------
+
+export type Quote = {
+  text: string;
+  highlight?: string;
+  author?: string;
+};
+
+export const randomQuotes: Quote[] = [
+  {
+    text: "Nem tudo precisa ser resolvido.",
+    highlight: "Algumas coisas só precisam ser compreendidas.",
+  },
+  {
+    text: "How rare and beautiful it is",
+    highlight: "to even exist.",
+    author: "Saturn — Sleeping At Last",
+  },
+  {
+    text: "Algumas histórias não precisam de um fim,",
+    highlight: "apenas de um espaço nas entrelinhas.",
+    author: "Luana Souza",
+  },
+];

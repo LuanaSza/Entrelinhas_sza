@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
-import { articles, formatDate, type Article } from "./content";
+import { articles, formatDate, randomQuotes, type Article } from "./content";
 
 // --------------------------------------------------
 // UTILITÁRIOS
@@ -538,6 +538,54 @@ function FeaturedArticle({ article }: { article: Article }) {
 }
 
 // --------------------------------------------------
+// COMPONENTE DE FRASES DINÂMICAS
+// --------------------------------------------------
+
+function RandomQuoteSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (randomQuotes.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % randomQuotes.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentQuote = randomQuotes[currentIndex];
+
+  if (!currentQuote) return null;
+
+  return (
+    <section className="rounded-2xl border-y border-line/60 bg-surface/20 px-6 py-16 text-center md:py-24 transition-opacity duration-700">
+      <span className="text-xs uppercase tracking-[0.2em] text-accent">
+        uma pequena lembrança
+      </span>
+
+      <div className="mx-auto mt-6 max-w-3xl space-y-4">
+        <p className="font-serif text-2xl leading-relaxed text-paper sm:text-3xl md:text-5xl">
+          {currentQuote.text}
+          {currentQuote.highlight && (
+            <>
+              <br />
+              <em className="text-accent">{currentQuote.highlight}</em>
+            </>
+          )}
+        </p>
+
+        {currentQuote.author && (
+          <span className="block pt-2 text-xs uppercase tracking-widest text-muted">
+            — {currentQuote.author}
+          </span>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// --------------------------------------------------
 // PÁGINA INICIAL
 // --------------------------------------------------
 
@@ -621,19 +669,7 @@ function HomePage() {
         )}
       </section>
 
-      <section className="rounded-2xl border-y border-line/60 bg-surface/20 px-6 py-16 text-center md:py-24">
-        <span className="text-xs uppercase tracking-[0.2em] text-accent">
-          uma pequena lembrança
-        </span>
-
-        <p className="mx-auto mt-6 max-w-3xl font-serif text-2xl leading-relaxed text-paper sm:text-3xl md:text-5xl">
-          Nem tudo precisa ser resolvido.
-          <br />
-          <em className="text-accent">
-            Algumas coisas só precisam ser compreendidas.
-          </em>
-        </p>
-      </section>
+      <RandomQuoteSection />
     </main>
   );
 }
@@ -842,7 +878,7 @@ function WritingsPage() {
 }
 
 // --------------------------------------------------
-// PÁGINA INDIVIDUAL DO ARTIGO (DESIGN LITERÁRIO & IMERSIVO)
+// PÁGINA INDIVIDUAL DO ARTIGO
 // --------------------------------------------------
 
 function ArticlePage() {
@@ -1194,7 +1230,7 @@ function AboutPage({ onOpenContact }: { onOpenContact: () => void }) {
       <div className="space-y-6 border-l border-line pl-6 font-light leading-relaxed text-muted md:text-lg">
         <p>
           O <strong className="font-normal text-paper">entrelinhas.</strong> é
-          um espaço autoral para escrever sobre aquilo que nem sempre encontra
+          um espaço autoral criado por <strong className="font-normal text-paper">Luana Souza</strong> para escrever sobre aquilo que nem sempre encontra
           nome: sentimentos, mudanças, memórias e pequenos começos.
         </p>
 
