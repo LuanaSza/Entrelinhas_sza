@@ -19,3 +19,5 @@ Há uma espécie de ternura em notar o que não pede aplauso: a planta que insis
 > O pequeno não é pouco. É o mundo quando a gente chega perto o bastante para enxergá-lo.
 
 E, às vezes, um dia inteiro cabe nisso: estar aqui, reparar, agradecer sem fazer barulho.
+
+— *Luana Souza*

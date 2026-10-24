@@ -110,3 +110,5 @@ E o mais estranho é que não sei dizer se isso é liberdade, vazio ou apenas o 
 Só sei que a luz está apagada.
 
 E, pela primeira vez, não tenho certeza se quero acendê-la novamente.
+
+— *Luana Souza*
